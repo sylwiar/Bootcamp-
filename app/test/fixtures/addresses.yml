@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+wroclaw:
+    city: Wroclaw
+    street: Swidnicka
+    zip_code: 50-950
