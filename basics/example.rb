@@ -67,4 +67,16 @@ class ArticlesFileSystem
       File.open(path, "w+") { |f| f.write(file_body) }
     end
   end
+
+  def load
+    Dir[directory + '/*.article'].map do |file|
+      file_name = File.basename(file, File.extname(file)).capitalize.gsub('_', ' ')
+      data = File.read(file)
+      author, likes, dislikes, body = data.split('||')
+      article = Article.new(file_name, body, author)
+      article.likes = likes.to_i
+      article.dislikes = dislikes.to_i
+      article
+    end
+  end
 end
