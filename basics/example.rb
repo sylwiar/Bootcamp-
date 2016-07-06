@@ -133,4 +133,22 @@ class WebPage
   def most_controversial_articles
     load.sort_by { |article| article.votes }.reverse
   end
+
+  def votes
+    load.map(&:votes).inject(0, :+)
+  end
+
+  def authors
+    load.map(&:author).uniq
+  end
+
+  def authors_statistics
+    stat = Hash.new(0)
+    load.map(&:author).each { |author| stat[author] += 1 }
+    stat
+  end
+
+  def best_author
+    authors_statistics.max_by { |author, votes| votes }.first
+  end
 end
