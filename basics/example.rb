@@ -50,5 +50,12 @@ class Article
       false
     end
   end
-  
+end
+
+class ArticlesFileSystem
+  attr_reader :directory
+
+  def initialize(directory)
+    @directory = directory
+  end
 end
