@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bmw:
+  model: BMW 535i
+  registration_number: DW 12345
+  # owner: steve
