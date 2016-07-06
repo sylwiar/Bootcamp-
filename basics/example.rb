@@ -58,4 +58,13 @@ class ArticlesFileSystem
   def initialize(directory)
     @directory = directory
   end
+
+  def save(articles)
+    articles.each do |article|
+      file_name = article.title.downcase.gsub(' ', '_') + '.article'
+      file_body = [article.author, article.likes, article.dislikes, article.body].join('||')
+      path = @directory + '/' + file_name
+      File.open(path, "w+") { |f| f.write(file_body) }
+    end
+  end
 end
