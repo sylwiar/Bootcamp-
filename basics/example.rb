@@ -80,3 +80,28 @@ class ArticlesFileSystem
     end
   end
 end
+
+class WebPage
+  def initialize(directory = '/')
+    @directory = directory
+    @articles = []
+    @articles_from_dir = ArticlesFileSystem.new(directory)
+  end
+
+  def articles
+    @articles
+  end
+
+  def load
+    @articles_from_dir.load
+  end
+
+  def save
+    @articles_from_dir.save(articles)
+  end
+
+  def new_article(title, body, author)
+    article = Article.new(title, body, author)
+    @articles << article
+  end
+end
