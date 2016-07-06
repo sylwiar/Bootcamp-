@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+renoma:
+  kind: private
+  hour_price: 3.00
+  day_price: 25.00
+  places: 600
+  # address: wroclaw
