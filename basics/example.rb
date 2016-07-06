@@ -82,6 +82,9 @@ class ArticlesFileSystem
 end
 
 class WebPage
+  class NoArticlesFound < StandardError 
+  end
+
   def initialize(directory = '/')
     @directory = directory
     @articles = []
@@ -103,5 +106,31 @@ class WebPage
   def new_article(title, body, author)
     article = Article.new(title, body, author)
     @articles << article
+  end
+
+  def longest_articles
+    load.sort_by { |article| article.length }.reverse
+  end
+
+  def best_articles
+    load.sort_by { |article| article.points }.reverse
+  end
+
+  def worst_articles
+    load.sort_by { |article| article.points }
+  end
+
+  def best_article
+    raise WebPage::NoArticlesFound if load.empty?
+    load.max_by { |article| article.points }
+  end
+
+  def worst_article
+    raise WebPage::NoArticlesFound if load.empty?
+    load.min_by { |article| article.points }
+  end
+
+  def most_controversial_articles
+    load.sort_by { |article| article.votes }.reverse
   end
 end
