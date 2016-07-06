@@ -151,4 +151,8 @@ class WebPage
   def best_author
     authors_statistics.max_by { |author, votes| votes }.first
   end
+
+  def search(query)
+    load.select { |article| article.contain?(query) }.sort_by { |article| article.title }
+  end
 end
