@@ -20,7 +20,7 @@
 
   <p>
     <%= f.label :kind %><br>
-    <%= f.select :kind, Parking::KINDS.map %>
+    <%= f.select :kind, ['outdoor', 'indoor', 'private', 'street'], {include_blank: "Choose kind", default: nil} %>
   </p>
 
   <p>

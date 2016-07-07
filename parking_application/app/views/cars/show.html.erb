@@ -1,0 +1,9 @@
+<h1><%= @car.model.capitalize %> car</h1>
+
+<h2>Details</h2>
+  <p>
+    <strong>Model:</strong> <%= @car.model %><br>
+    <strong>Registration number:</strong> <%= @car.registration_number %><br>
+  </p>
+
+<p><%= link_to 'Back', cars_path %></p>

@@ -15,6 +15,6 @@
   </address>
 
 <h2>Owner</h2>
-  <p><strong><%= [@parking.owner.first_name, @parking.owner.last_name].join(" ") %></strong></p>
+  <p><strong><%= @parking.owner.name %></strong></p>
 
 <p><%= link_to 'Back', parkings_path %></p>

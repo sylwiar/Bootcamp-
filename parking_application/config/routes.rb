@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'cars/controller'
+
   resources :parkings
+  resources :cars
 
   root 'parkings#index'
   
