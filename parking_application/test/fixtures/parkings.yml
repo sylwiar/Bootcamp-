@@ -5,7 +5,7 @@ renoma:
   hour_price: 3.00
   day_price: 25.00
   places: 600
-  # address: wroclaw
+  address: wroclaw
 
 private:
   kind: private

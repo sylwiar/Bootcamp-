@@ -19,7 +19,6 @@ class Parking < ActiveRecord::Base
   scope :hour_price_between, -> (lower_hour_limit, upper_hour_limit) { where( "hour_price > ? and hour_price < ?", lower_hour_limit, upper_hour_limit ) }
   scope :in_city, -> (city) { where( "city = ?", city ).joins(:address) }
 
-  private
   def finish_rental
     end_date = Time.now    
   end

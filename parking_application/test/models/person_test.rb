@@ -16,11 +16,11 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test 'should display full name' do
-    assert_equal("Steve Jobs", @person.full_name)
+    assert_equal("Steve Jobs", @person.name)
   end
 
   test "should display only first name" do
     @person.last_name = nil
-    assert_equal("Steve", @person.full_name)
+    assert_equal("Steve", @person.name)
   end
 end

@@ -3,8 +3,8 @@ require 'test_helper'
 class ParkingTest < ActiveSupport::TestCase
   def setup
     @parking = parkings(:renoma)
-    @public = parking(:public)
-    @private = parking(:private)
+    @public = parkings(:public)
+    @private = parkings(:private)
     @end_date = @parking.finish_rental
   end
 
@@ -13,25 +13,25 @@ class ParkingTest < ActiveSupport::TestCase
   end
 
   test 'should not save parking without places' do
-    @parking.registration_number = nil
+    @parking.places = nil
     assert_not @parking.valid?
     assert @parking.errors.has_key?(:places)
   end
 
   test 'should not save parking without hour_price' do
-    @parking.model = nil
+    @parking.hour_price = nil
     assert_not @parking.valid?
     assert @parking.errors.has_key?(:hour_price)
   end
 
   test 'should not save parking without day_price' do
-    @parking.owner = nil
+    @parking.day_price = nil
     assert_not @parking.valid?
     assert @parking.errors.has_key?(:day_price)
   end
 
   test 'should not save parking without kind' do
-    @parking.owner = nil
+    @parking.kind = nil
     assert_not @parking.valid?
     assert @parking.errors.has_key?(:kind)
   end
@@ -56,7 +56,7 @@ class ParkingTest < ActiveSupport::TestCase
   end
 
   test "should get a list of all private parkings" do
-    assert_equal([@private], Parking.private_parkings)
+    assert_equal([@private, @parking], Parking.private_parkings)
   end
 
   test "should get a list of all parkings in day_price range" do
@@ -68,6 +68,6 @@ class ParkingTest < ActiveSupport::TestCase
   end  
 
   test "should get a list of all parkings in the given city" do
-    assert_equal([@parking, @public], Parking.in_city("Wroclaw"))
+    assert_equal([@private, @parking], Parking.in_city("Wroclaw"))
   end
 end
