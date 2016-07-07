@@ -1,6 +1,8 @@
 class Parking < ActiveRecord::Base
   kinds = %w(outdoor indoor private street)
 
+  before_destroy :finish_rental
+
   validates :places, presence: true
   validates :hour_price, :day_price, presence: true, numericality: true
   validates :kind, inclusion: { in: kinds }
@@ -10,4 +12,9 @@ class Parking < ActiveRecord::Base
   has_many :place_rents
 
   accepts_nested_attributes_for :address
+
+  private
+  def finish_rental
+    end_date = Time.now    
+  end
 end
