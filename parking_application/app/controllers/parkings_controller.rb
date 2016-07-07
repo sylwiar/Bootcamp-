@@ -1,6 +1,6 @@
 class ParkingsController < ApplicationController
   def index
-    @parkings = Parking.all
+    @parkings = Parking.search(params).order(:id)
   end
 
   def show
