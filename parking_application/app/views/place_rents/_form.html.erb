@@ -1,0 +1,35 @@
+<%= form_for ([@parking, @place_rent]) do |f| %>
+
+  <% if @place_rent.errors.any? %>
+    <div>
+      <h2>
+        <%= pluralize(@place_rent.errors.count, "error") %> prohibited this place_rent from being saved:
+      </h2>
+      <ul>
+        <% @place_rent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <b> Select car </b><br>
+    <%= f.collection_select :car_id, current_person.cars, :id, :model, { prompt: 'Select car' }  %>
+  </p>
+
+  <p>
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date %>
+  </p>
+
+  <p>
+    <%= f.label :end_date %><br>
+    <%= f.datetime_select :end_date %>
+  </p>
+  <% end %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
