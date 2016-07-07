@@ -34,6 +34,12 @@ class ParkingsController < ApplicationController
     end
   end
 
+  def destroy
+    @parking = Parking.find(params[:id]).destroy
+    flash[:success] = "Parking deleted"
+    redirect_to @parking
+  end
+
   private
 
   def parking_params
