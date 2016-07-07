@@ -6,4 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Person.create(first_name: "Steve", last_name: "Jobs")
+person = Person.create(first_name: "Steve", last_name: "Jobs")
+
+p "Created #{Person.count} people"
