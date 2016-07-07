@@ -1,0 +1,23 @@
+<h1>Place rents</h1>
+ 
+<table>
+  <tr>
+    <th>Parking</th>
+    <th>Car</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @place_rents.each do |place_rent| %>
+  <tr>
+    <td><%= place_rent.start_date.strftime('%d.%m.%Y, %H:%M')  %></td>
+    <td><%= place_rent.end_date.strftime('%d.%m.%Y, %H:%M') %></td>
+    <td><%= link_to 'Car', car_path(place_rent.car) %></td>
+    <td><%= link_to 'Parking', parking_path(place_rent.parking) %></td>
+    <td><%= link_to 'Show', place_rent %></td>
+  </tr>
+<% end %>
+</table>
