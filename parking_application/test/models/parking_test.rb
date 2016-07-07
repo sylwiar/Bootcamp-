@@ -3,6 +3,8 @@ require 'test_helper'
 class ParkingTest < ActiveSupport::TestCase
   def setup
     @parking = parkings(:renoma)
+    @public = parking(:public)
+    @private = parking(:private)
     @end_date = @parking.finish_rental
   end
 
@@ -47,5 +49,25 @@ class ParkingTest < ActiveSupport::TestCase
 
   test "should set end_date before destroying" do
     assert_in_delta(Time.now, @end_date, delta = 0.001)
+  end
+
+  test "should get a list of all public parkings" do
+    assert_equal([@public], Parking.public_parkings)
+  end
+
+  test "should get a list of all private parkings" do
+    assert_equal([@private], Parking.private_parkings)
+  end
+
+  test "should get a list of all parkings in day_price range" do
+    assert_equal([@public], Parking.day_price_between(12.00, 20.00))
+  end
+
+  test "should get a list of all parkings in hour_price range" do
+    assert_equal([@parking, @public], Parking.hour_price_between(1.00, 5.00))
+  end  
+
+  test "should get a list of all parkings in the given city" do
+    assert_equal([@parking, @public], Parking.in_city("Wroclaw"))
   end
 end

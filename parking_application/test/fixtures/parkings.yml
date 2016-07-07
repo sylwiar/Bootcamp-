@@ -6,3 +6,17 @@ renoma:
   day_price: 25.00
   places: 600
   # address: wroclaw
+
+private:
+  kind: private
+  hour_price: 5.00
+  day_price: 20.00
+  places: 200
+  address: wroclaw
+
+public:
+  kind: street
+  hour_price: 2.50
+  day_price: 15.00
+  places: 100
+  address: poznan
