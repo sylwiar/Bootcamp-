@@ -1,0 +1,20 @@
+<h1><%= @parking.kind.capitalize %> parking</h1>
+
+<h2>Details</h2>
+  <p>
+    <strong>Places:</strong> <%= @parking.places %><br>
+    <strong>Kind:</strong> <%= @parking.kind %><br>
+    <strong>Hour price:</strong> <%= @parking.hour_price %><br>
+    <strong>Day price:</strong> <%= @parking.day_price %>
+  </p>
+
+<h2>Address</h2>
+  <address>
+    <%= @parking.address.zip_code %>, <%= @parking.address.city %><br>
+    <%= @parking.address.street %>
+  </address>
+
+<h2>Owner</h2>
+  <p><strong><%= [@parking.owner.first_name, @parking.owner.last_name].join(" ") %></strong></p>
+
+<p><%= link_to 'Back', parkings_path %></p>
