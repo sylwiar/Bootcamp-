@@ -33,6 +33,23 @@
     <%= f.text_field :day_price %>
   </p>
 
+  <%= f.fields_for :address do |a| %>
+    <p>
+      <%= f.label :zip_code %><br>
+      <%= f.text_field :zip_code %>
+    </p>
+
+    <p>
+      <%= f.label :city %><br>
+      <%= f.text_field :city %>
+    </p>
+
+    <p>
+      <%= f.label :street %><br>
+      <%= f.text_field :street %>
+    </p>
+  <% end %>
+
   <p>
     <%= f.submit %>
   </p>
