@@ -7,5 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 person = Person.create(first_name: "Steve", last_name: "Jobs")
+parking = Parking.create(kind: "street", hour_price: "2.50", day_price: "15.00", places: "100")
 
 p "Created #{Person.count} people"
+p "Created #{Parking.count} parkings"
