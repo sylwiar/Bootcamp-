@@ -10,11 +10,11 @@
 
 <h2>Address</h2>
   <address>
-    <%= @parking.address.zip_code %>, <%= @parking.address.city %><br>
-    <%= @parking.address.street %>
+    <%= @parking.address.try(:zip_code) %>, <%= @parking.address.try(:city) %><br>
+    <%= @parking.address.try(:street) %>
   </address>
 
 <h2>Owner</h2>
-  <p><strong><%= @parking.owner.name %></strong></p>
+  <p><strong><%= @parking.owner.try(:name) %></strong></p>
 
 <p><%= link_to 'Back', parkings_path %></p>
