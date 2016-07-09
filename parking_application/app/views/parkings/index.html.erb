@@ -13,7 +13,7 @@
  
 <% @parkings.each do |parking| %>
   <tr>
-    <td><% parking.address.try(:city) %></td>
+    <td><% if parking.address %><%= parking.address.city %><% end %></td>
     <td><%= parking.places %></td>
     <td><%= parking.hour_price %></td>
     <td><%= parking.day_price %></td>

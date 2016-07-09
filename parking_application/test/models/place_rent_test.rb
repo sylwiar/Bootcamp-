@@ -6,7 +6,7 @@ class PlaceRentTest < ActiveSupport::TestCase
   end
 
   test 'place_rent should be valid' do
-    assert @place_rent.invalid?
+    assert @place_rent.valid?
   end
 
   test 'should not save place_rent without start_date' do
@@ -25,11 +25,5 @@ class PlaceRentTest < ActiveSupport::TestCase
     @place_rent.car = nil
     assert_not @place_rent.valid?
     assert @place_rent.errors.has_key?(:car)
-  end
-
-  test 'should not save place_rent without parking' do
-    @place_rent.parking = nil
-    assert_not @place_rent.valid?
-    assert @place_rent.errors.has_key?(:parking)
   end
 end
