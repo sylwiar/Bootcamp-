@@ -26,4 +26,10 @@ class PlaceRentTest < ActiveSupport::TestCase
     assert_not @place_rent.valid?
     assert @place_rent.errors.has_key?(:car)
   end
+
+  test 'should not save place_rent without parking' do
+    @place_rent.parking = nil
+    assert_not @place_rent.valid?
+    assert @place_rent.errors.has_key?(:parking)
+  end
 end

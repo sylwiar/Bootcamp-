@@ -1,6 +1,6 @@
 class PlaceRent < ActiveRecord::Base
   before_save :calculate_price
-  validates :start_date, :end_date, :car, presence: true
+  validates :start_date, :end_date, :car, :parking, presence: true
 
   belongs_to :parking
   belongs_to :car

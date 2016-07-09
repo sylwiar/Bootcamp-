@@ -4,5 +4,5 @@ bmw_at_renoma:
   start_date: <%= 5.days.ago.to_s(:db) %> 
   end_date: <%= 2.days.ago.to_s(:db) %> 
   car: bmw
-  # parking: renoma
+  parking: renoma
   # price: 125.00
