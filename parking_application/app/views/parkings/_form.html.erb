@@ -35,18 +35,18 @@
 
   <%= f.fields_for :address do |a| %>
     <p>
-      <%= f.label :zip_code %><br>
-      <%= f.text_field :zip_code %>
+      <%= a.label :zip_code %><br>
+      <%= a.text_field :zip_code %>
     </p>
 
     <p>
-      <%= f.label :city %><br>
-      <%= f.text_field :city %>
+      <%= a.label :city %><br>
+      <%= a.text_field :city %>
     </p>
 
     <p>
-      <%= f.label :street %><br>
-      <%= f.text_field :street %>
+      <%= a.label :street %><br>
+      <%= a.text_field :street %>
     </p>
   <% end %>
 

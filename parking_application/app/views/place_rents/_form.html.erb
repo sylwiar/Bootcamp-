@@ -15,7 +15,7 @@
 
   <p>
     <b> Select car </b><br>
-    <%= f.collection_select :car_id, current_person.cars, :id, :model, { prompt: 'Select car' }  %>
+    <%= f.collection_select :car_id, current_user.cars, :id, :model, { prompt: 'Select car' }  %>
   </p>
 
   <p>

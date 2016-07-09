@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    @cars =  Car.all
   end
 
   def show
@@ -41,7 +41,6 @@ class CarsController < ApplicationController
   end
 
   private
-
   def car_params
     params.require(:car).permit(:model, :registration_number)
   end
