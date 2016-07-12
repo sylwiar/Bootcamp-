@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    Person.first
+    @current_user ||= Account.find(session[:account_id]) if session[:account_id]
   end
 end
