@@ -1,4 +1,6 @@
 class PlaceRentsController < ApplicationController
+  before_action :authenticate_account!
+
   def index
     @place_rents = PlaceRent.all
   end
