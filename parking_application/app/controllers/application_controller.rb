@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :page_title
   helper_method :current_user
+  include AuthenticatedSystem
 
   def page_title
     controller_name
