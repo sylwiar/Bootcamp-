@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :accounts
   get 'cars/controller'
 
   resources :parkings do
