@@ -1,4 +1,8 @@
 class ParkingsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    redirect_to parkings_path, alert: 'Parking was not found.'
+  end
+  
   def index
     @parkings = Parking.search(params).order(:id)
   end

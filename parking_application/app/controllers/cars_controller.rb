@@ -1,4 +1,8 @@
 class CarsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    redirect_to cars_path, alert: 'Car was not found.'
+  end
+  
   def index
     @cars =  Car.all
   end
