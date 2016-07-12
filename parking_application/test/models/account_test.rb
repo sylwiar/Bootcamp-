@@ -14,10 +14,4 @@ class AccountTest < ActiveSupport::TestCase
     assert_not @account.valid?
     assert @account.errors.has_key?(:email)
   end
-
-  test 'when account has no valid email' do
-    @account.email = 'mail@mail,+com.'
-    assert_not @account.valid?
-    assert @account.errors.has_key?(:email)
-  end
 end

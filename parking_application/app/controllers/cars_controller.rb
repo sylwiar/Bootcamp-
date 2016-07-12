@@ -2,7 +2,6 @@ class CarsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound do |exception|
     redirect_to cars_path, alert: 'Car was not found.'
   end
-  before_action :authenticate_account!
   
   def index
     @cars =  Car.all

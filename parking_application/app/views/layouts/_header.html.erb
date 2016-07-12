@@ -1,8 +1,3 @@
-<% if account_signed_in? %>
-  <%= link_to "Cars", cars_path %>
-  <%= link_to "Parkings", parkings_path %>
-  <%= link_to "Rents", place_rents_path %>
-  <%= link_to "Sign out", destroy_account_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in", new_account_session_path  %>  
-<% end %>
+<%= link_to "Cars", cars_path %>
+<%= link_to "Parkings", parkings_path %>
+<%= link_to "Rents", place_rents_path %>

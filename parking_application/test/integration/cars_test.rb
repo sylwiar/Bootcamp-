@@ -1,13 +1,6 @@
 require 'test_helper'
 
 class CarsTest < ActionDispatch::IntegrationTest
-  setup do
-    visit "/accounts/sign_in"
-    fill_in "Email", with: "jankowalski@gmail.com"
-    fill_in "Password", with: "12345678"
-    click_button "Log in"
-  end
-
   test 'user opens cars index' do
     visit '/cars'
     assert has_content? 'Cars'

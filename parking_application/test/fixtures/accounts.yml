@@ -6,7 +6,6 @@
 #
 one: 
   email: jankowalski@gmail.com
-  encrypted_password: 12345678
 
 #
 two: {}
