@@ -68,5 +68,6 @@ module AuthenticatedSystem
 
   # clear session account_id and current_account variable
   def logout!
+    self.current_account = nil
   end
 end
