@@ -25,4 +25,13 @@ class Account < ActiveRecord::Base
   def encrypt_password
     self.encrypted_password = password_digest(password)
   end
+
+  def self.authenticate!(email, password)
+    account = Account.find_by_email(email)
+    if account && account.valid_password?(password)
+      account
+    else
+      nil
+    end 
+  end
 end
