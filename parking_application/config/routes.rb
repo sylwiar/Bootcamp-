@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "accounts/register" => "accounts#new", :as => "sign_up"
+  post "accounts/register" => "accounts#create", :as => "create_account"
+  get "accounts/login" => "sessions#new", :as => "log_in"
+  post "accounts/login" => "sessions#create", :as => "logged_in"
+  delete "accounts/logout" => "sessions#destroy", :as => "log_out"
 
   get 'cars/controller'
 
