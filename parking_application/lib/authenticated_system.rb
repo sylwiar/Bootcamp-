@@ -37,9 +37,11 @@ module AuthenticatedSystem
 
   # return current login status (boolean value) or redirect to login form and save current user location
   def authenticate_account!
-    return if @current_user
-    session[:authenticate_uri] = request.request_uri
-    redirect_to('/login')
+    if account_signed_in?
+      return true
+    else
+      access_denied
+    end
   end
 
   # save current user location and redirect to login form

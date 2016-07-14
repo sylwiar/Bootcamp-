@@ -1,12 +1,15 @@
 class Account < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   belongs_to :person
-  has_secure_password
-  validates :password, presence: true
+
+  attr_accessor :password
 
   accepts_nested_attributes_for :person
 
   before_create :encrypt_password
+
+  validates_confirmation_of :password, :on => :create
+  validates_presence_of :password, :on => :create
 
   PEPPER = '9782901ee15a5651b9f5'
   STRETCHES = 10
